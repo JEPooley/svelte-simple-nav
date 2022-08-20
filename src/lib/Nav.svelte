@@ -1,52 +1,28 @@
 <script lang="ts">
-	// Types
-	type Anchor = 'fixed-top' | 'fixed-bottom' | 'absolute' | 'static';
-	type Layout = 'center' | 'spaced' | 'spaced-reverse' | 'left' | 'right';
+	// Imports
+	import { getAnchorStyle } from './anchor.js';
+	import { getLayoutStyle } from './layout.js';
+	import type { Anchor } from './anchor.js';
+	import type { Layout } from './layout.js';
 
 	// Props
 	export let minHeight: string = '50px';
-	export let maxWidth: string = '960px';
+	export let maxWidth: string = '1366px';
 	export let background: string = '#ff3e00';
 	export let color: string = '#ffffff';
 	export let anchor: Anchor = 'absolute';
 	export let layout: Layout = 'spaced';
+	export let shadow: boolean = true;
 
 	// Init
-	let anchorStyle: string = '';
-	$: switch (anchor) {
-		case 'absolute':
-			anchorStyle = 'position: absolute; top: 0; left: 0;';
-			break;
-		case 'fixed-top':
-			anchorStyle = 'position: fixed; top: 0; left: 0;';
-			break;
-		case 'fixed-bottom':
-			anchorStyle = 'position: fixed; bottom: 0; left: 0;';
-	}
-
-	let layoutStyle: string = '';
-	$: switch (layout) {
-		case 'center':
-			layoutStyle = 'justify-content: center;';
-			break;
-		case 'spaced':
-			layoutStyle = 'justify-content: space-between;';
-			break;
-		case 'spaced-reverse':
-			layoutStyle = 'justify-content: space-between; flex-direction: row-reverse;';
-			break;
-		case 'left':
-			layoutStyle = 'justify-content: left;';
-			break;
-		case 'right':
-			layoutStyle = 'justify-content: right;';
-			break;
-	}
+	$: anchorStyle = getAnchorStyle(anchor);
+	$: layoutStyle = getLayoutStyle(layout);
+	$: shadowStyle = shadow ? 'box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);' : '';
 </script>
 
 <div
 	class="navbar-outer"
-	style="min-height: {minHeight}; background: {background}; color: {color}; {anchorStyle}"
+	style="min-height: {minHeight}; background: {background}; color: {color}; {anchorStyle}; {shadowStyle}"
 >
 	<div class="navbar-inner" style="max-width: {maxWidth}; {layoutStyle}">
 		<div class="logo">
@@ -69,7 +45,6 @@
 	.navbar-inner {
 		display: flex;
 		width: 100%;
-		max-width: 800px;
 		padding: 10px 20px;
 		box-sizing: border-box;
 	}
