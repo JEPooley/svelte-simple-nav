@@ -4,7 +4,7 @@
 
 
 <Nav anchor="fixed-bottom" layout="center">
-    <h4 slot="logo">Logo</h4>
+    <h4 slot="logo" style="margin: 0;">Logo</h4>
     <a href="#">Login</a>
     <a href="#">Register</a>
 </Nav>
