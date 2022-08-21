@@ -19,21 +19,21 @@
 	export let layout: Layout = 'spaced';
 	export let shadow: boolean = true;
 	export let mobileBreak: string = '400px';
+	export let sidepanelBackground: string = 'white';
+	export let sidepanelColor: string = 'rgb(20, 20, 20)';
 
 	// Init
 	let open = false;
 	const anchorStyle: string = getAnchorStyle(anchor);
 	const layoutStyle: string = getLayoutStyle(layout);
 	const shadowStyle: string = shadow ? '0 2px 4px rgba(0, 0, 0, 0.25);' : '';
-
-	// Construct Styles
+	let navbarInnerStyle: string;
 	const navbarOuterStyle: string =
 		`min-height: ${minHeight};` +
 		`background: ${background};` +
 		`color: ${color};` +
 		anchorStyle +
 		`box-shadow: ${shadowStyle};`;
-	let navbarInnerStyle: string = `max-width: ${maxWidth}; justify-content: space-between;`;
 
 	// Media Query
 	let desktop: boolean = true;
@@ -51,7 +51,7 @@
 	$: if (desktop) {
 		navbarInnerStyle = `max-width: ${maxWidth};` + layoutStyle;
 	} else {
-		navbarInnerStyle = `max-width: ${maxWidth}; justify-content: space-between;`;
+		navbarInnerStyle = `max-width: ${maxWidth};` + 'justify-content: space-between;';
 	}
 </script>
 
@@ -65,6 +65,7 @@
 			role="menu"
 			class:open
 			class={desktop ? 'desktop-nav' : 'mobile-nav'}
+			style="--background: {sidepanelBackground}; --color: {sidepanelColor}"
 		>
 			{#if !desktop}
 				<button
@@ -75,7 +76,9 @@
 					}}><CloseMenuIcon /></button
 				>
 			{/if}
-			<slot />
+			<div>
+				<slot />
+			</div>
 		</nav>
 		{#if !desktop}
 			<button
@@ -114,18 +117,29 @@
 	}
 
 	.mobile-nav {
-		width: 90vw;
+		width: 230px;
 		height: 100vh;
 		position: fixed;
 		top: 0;
-		left: -90vw;
-		background: white;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+		left: -270px;
+		background: var(--background);
+		color: var(--color);
+		box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
 		transition: left 0.4s ease-in-out;
 	}
 
 	.mobile-nav.open {
 		left: 0;
+	}
+
+	.mobile-nav > div {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.mobile-nav :global(a) {
+		width: 100%;
+		text-align: center;
 	}
 
 	.navbar-outer :global(a) {
