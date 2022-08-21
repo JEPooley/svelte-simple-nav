@@ -3,7 +3,7 @@
     export let color: string = "#ffffff";
 </script>
 
-<svg viewBox="0 0 55 31" width="40" height="40" style="fill: {color}">
+<svg viewBox="0 0 55 31" width="25" height="25" style="fill: {color}">
 	<rect width="55" height="5" />
 	<rect y="13" width="55" height="5" />
 	<rect y="26" width="55" height="5" />

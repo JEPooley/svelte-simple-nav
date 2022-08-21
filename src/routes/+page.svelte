@@ -2,8 +2,8 @@
 	import Nav from '$lib/Nav.svelte';
 </script>
 
-<Nav anchor="fixed-top" layout="spaced">
-	<h4 slot="logo" style="margin: 0;">Logo</h4>
+<Nav anchor="fixed-top" layout="center">
+	<!-- <h4 slot="logo" style="margin: 0;">Logo</h4> -->
 	<a href="#" aria-current="page">Home</a>
 	<a href="#">Login</a>
 	<a href="#">Register</a>

@@ -33,17 +33,26 @@
 		`color: ${color};` +
 		anchorStyle +
 		`box-shadow: ${shadowStyle};`;
-	const navbarInnerStyle: string = `max-width: ${maxWidth};` + layoutStyle;
+	let navbarInnerStyle: string = `max-width: ${maxWidth}; justify-content: space-between;`;
 
 	// Media Query
 	let desktop: boolean = true;
 
 	onMount(() => {
-		const desktopQuery: Readable<boolean> = useMediaQuery(`(min-width: ${mobileBreak})`);
-		desktopQuery.subscribe((value: boolean) => {
-			desktop = value;
-		});
+		if (mobileBreak) {
+			const desktopQuery: Readable<boolean> = useMediaQuery(`(min-width: ${mobileBreak})`);
+			desktopQuery.subscribe((value: boolean) => {
+				desktop = value;
+				open = false;
+			});
+		}
 	});
+
+	$: if (desktop) {
+		navbarInnerStyle = `max-width: ${maxWidth};` + layoutStyle;
+	} else {
+		navbarInnerStyle = `max-width: ${maxWidth}; justify-content: space-between;`;
+	}
 </script>
 
 <div class="navbar-outer" style={navbarOuterStyle} class:desktop>
@@ -57,25 +66,29 @@
 			class:open
 			class={desktop ? 'desktop-nav' : 'mobile-nav'}
 		>
-			<button
-				style="width: 40px; height: 40px;"
-				id="menu-close"
-				on:click={() => {
-					open = false;
-				}}><CloseMenuIcon /></button
-			>
+			{#if !desktop}
+				<button
+					style="width: 40px; height: 40px;"
+					id="menu-close"
+					on:click={() => {
+						open = false;
+					}}><CloseMenuIcon /></button
+				>
+			{/if}
 			<slot />
 		</nav>
-		<button
-			on:click={() => {
-				open = true;
-			}}
-			aria-haspopup="menu"
-			type="button"
-			aria-pressed={open}
-		>
-			<OpenMenuIcon {color} />
-		</button>
+		{#if !desktop}
+			<button
+				on:click={() => {
+					open = true;
+				}}
+				aria-haspopup="menu"
+				type="button"
+				aria-pressed={open}
+			>
+				<OpenMenuIcon {color} />
+			</button>
+		{/if}
 	</div>
 </div>
 
@@ -130,5 +143,8 @@
 	button {
 		background: transparent;
 		border: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 </style>
