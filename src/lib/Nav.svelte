@@ -140,6 +140,7 @@
 	.mobile-nav :global(a) {
 		width: 100%;
 		text-align: center;
+		padding: 10px 0;
 	}
 
 	.navbar-outer :global(a) {
@@ -150,15 +151,12 @@
 		margin: 0 10px;
 	}
 
-	.desktop {
-		background: yellowgreen !important;
-	}
-
 	button {
 		background: transparent;
 		border: none;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		cursor: pointer;
 	}
 </style>
