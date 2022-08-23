@@ -73,7 +73,7 @@
 					id="menu-close"
 					on:click={() => {
 						open = false;
-					}}><CloseMenuIcon /></button
+					}}><CloseMenuIcon color={sidepanelColor} /></button
 				>
 			{/if}
 			<div>
