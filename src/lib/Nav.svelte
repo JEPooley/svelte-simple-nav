@@ -12,7 +12,7 @@
 
 	// Props
 	export let minHeight: string = '50px';
-	export let maxWidth: string = '1366px';
+	export let maxWidth: string = '960px';
 	export let background: string = 'linear-gradient(90deg, #FF3E00 0%, #FF5D00 100%);';
 	export let color: string = '#ffffff';
 	export let anchor: Anchor = 'absolute';
