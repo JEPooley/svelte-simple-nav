@@ -117,11 +117,11 @@
 	}
 
 	.mobile-nav {
-		width: 230px;
+		width: 80vw;
 		height: 100vh;
 		position: fixed;
 		top: 0;
-		left: -270px;
+		left: calc(-80vw - 40px);
 		background: var(--background);
 		color: var(--color);
 		box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
@@ -149,6 +149,9 @@
 
 	.logo {
 		margin: 0 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	button {

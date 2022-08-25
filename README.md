@@ -9,7 +9,7 @@ Simple responsive navigation bar, with sliding sidepanel, for Svelte.
 - Allows customisation of colours, height, the break point and other key parameters
 - Uses slots for cleaner implementation (no need to pass through an array of data objects)
 
-It is *simple* in the sense that:
+It is simple in the sense that:
 - It does not handle nested lists / large navigation menus
 - It is fairly opinionated so that it can be setup easily without many (or any) required properties
 
