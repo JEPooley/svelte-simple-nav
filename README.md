@@ -21,7 +21,7 @@ npm install svelte-simple-nav
 
 ## Quick Start
 
-```js
+```svelte
 <script>
     import { Nav } from "svelte-simple-nav"
 </script>
