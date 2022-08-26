@@ -1,1 +1,3 @@
-// Reexport your entry components here
+import Nav from "./Nav.svelte"
+
+export default Nav
