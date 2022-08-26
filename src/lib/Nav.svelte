@@ -155,6 +155,7 @@
 	}
 
 	button {
+		margin: 0;
 		background: transparent;
 		border: none;
 		display: flex;

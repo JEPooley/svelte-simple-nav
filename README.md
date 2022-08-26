@@ -23,7 +23,7 @@ npm install svelte-simple-nav
 
 ```svelte
 <script>
-    import { Nav } from "svelte-simple-nav"
+    import Nav from "svelte-simple-nav"
 </script>
 
 <Nav>
