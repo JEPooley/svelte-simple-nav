@@ -67,7 +67,7 @@ Here is a list of the parameters that you can use to change the look and feel of
 
 - `shadow` (bool): sets whether to add shadow to nav bar (set to `false`, for example, if the nav background is transparent)
 
-- `mobileBreak` (string): sets the breakpoint for displaying the desktop or mobile nav bar. If you have lots of links, you might need to make the break point earlier. Conversely, if you only have a couple of links, you might be able to avoid the dreaded hamburger altogether :smile: 
+- `mobileBreak` (string): sets the breakpoint for displaying the desktop or mobile nav bar. If you have lots of links, you might need to make the break point earlier. Conversely, if you only have a couple of links, you might not need a hamburger at all :smile: 
 
 - `sidepanelBackground` (string): sets the background colour for the sliding sidepanel (in mobile view)
 
