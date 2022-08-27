@@ -1,7 +1,7 @@
 export type Layout = 'center' | 'spaced' | 'spaced-reverse' | 'left' | 'right';
 
 export function getLayoutStyle(layout: Layout): string {
-    let layoutStyle: string = '';
+    let layoutStyle = '';
     $: switch (layout) {
         case 'center':
             layoutStyle = 'justify-content: center;';

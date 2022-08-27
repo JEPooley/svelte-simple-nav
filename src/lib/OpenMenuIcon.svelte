@@ -1,6 +1,6 @@
 <script lang="ts">
     // Props
-    export let color: string = "#ffffff";
+    export let color = "#ffffff";
 </script>
 
 <svg viewBox="0 0 55 31" width="25" height="25" style="fill: {color}">

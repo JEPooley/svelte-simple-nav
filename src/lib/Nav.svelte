@@ -24,11 +24,11 @@
 
 	// Init
 	let open = false;
-	const anchorStyle: string = getAnchorStyle(anchor);
-	const layoutStyle: string = getLayoutStyle(layout);
-	const shadowStyle: string = shadow ? '0 2px 4px rgba(0, 0, 0, 0.25);' : '';
+	const anchorStyle = getAnchorStyle(anchor);
+	const layoutStyle = getLayoutStyle(layout);
+	const shadowStyle = shadow ? '0 2px 4px rgba(0, 0, 0, 0.25);' : '';
 	let navbarInnerStyle: string;
-	const navbarOuterStyle: string =
+	const navbarOuterStyle =
 		`min-height: ${minHeight};` +
 		`background: ${background};` +
 		`color: ${color};` +
@@ -36,11 +36,11 @@
 		`box-shadow: ${shadowStyle};`;
 
 	// Media Query
-	let desktop: boolean = true;
+	let desktop = true;
 
 	onMount(() => {
 		if (mobileBreak) {
-			const desktopQuery: Readable<boolean> = useMediaQuery(`(min-width: ${mobileBreak})`);
+			const desktopQuery = useMediaQuery(`(min-width: ${mobileBreak})`);
 			desktopQuery.subscribe((value: boolean) => {
 				desktop = value;
 				open = false;

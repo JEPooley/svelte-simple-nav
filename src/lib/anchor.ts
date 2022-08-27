@@ -1,7 +1,7 @@
 export type Anchor = 'fixed-top' | 'fixed-bottom' | 'absolute' | 'static';
 
 export function getAnchorStyle(anchor: Anchor): string {
-    let anchorStyle: string = '';
+    let anchorStyle = '';
     switch (anchor) {
         case 'absolute':
             anchorStyle = 'position: absolute; top: 0; left: 0;';
