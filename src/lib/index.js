@@ -1,3 +1,1 @@
-import Nav from "./Nav.svelte"
-
-export default Nav
+export { default as Nav } from "./Nav.svelte";
