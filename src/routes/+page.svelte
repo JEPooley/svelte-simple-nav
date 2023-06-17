@@ -8,7 +8,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
 </svelte:head>
 
-<Nav maxWidth="800px">
+<Nav maxWidth="800px" anchor="fixed-bottom">
 	<a slot="logo" href="/">Logo</a>
 	<a href="#" aria-current="page">Home</a>
 	<a href="#">Login</a>

@@ -34,6 +34,8 @@ npm install svelte-simple-nav
 </Nav>
 ```
 
+You can view this simple example in a Svelte REPL
+
 ## Options
 
 Here is a list of the parameters that you can use to change the look and feel of the `<Nav />` component:
@@ -73,7 +75,12 @@ Here is a list of the parameters that you can use to change the look and feel of
 
 - `sidepanelColor` (string): sets the text colour for the sliding sidepanel (in mobile view)
 
+
+## Slot Props
+
+- `desktop` (bool): the desktop property is exposed by the default slot and can be accessed using the `let` directive (e.g. `<Nav let:desktop />`). It's value is from a media query: `true` meaning that the page is wider than the `mobileBreak` width, `false` meaning that the page is narrower than the `mobileBreak` width.
+
 ## TODO
 - Make sidepanel min-width a directly tuneable parameter
 - Clarify and implement optimal markup for accessibilty
-- Expose desktop media query to allow more external customisation
+- Add changelog

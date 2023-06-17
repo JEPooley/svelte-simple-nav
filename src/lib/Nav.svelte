@@ -6,7 +6,6 @@
 	import type { Layout } from './layout.js';
 	import { useMediaQuery } from './useMediaQuery';
 	import { onMount } from 'svelte';
-	import type { Readable } from 'svelte/store';
 	import OpenMenuIcon from './OpenMenuIcon.svelte';
 	import CloseMenuIcon from './CloseMenuIcon.svelte';
 
@@ -26,7 +25,9 @@
 	let open = false;
 	const anchorStyle = getAnchorStyle(anchor);
 	const layoutStyle = getLayoutStyle(layout);
-	const shadowStyle = shadow ? '0 2px 4px rgba(0, 0, 0, 0.25);' : '';
+	const shadowStyle = shadow
+		? `0 ${anchor == 'fixed-bottom' ? '-2px' : '2px'} 4px rgba(0, 0, 0, 0.25);`
+		: '';
 	let navbarInnerStyle: string;
 	const navbarOuterStyle =
 		`min-height: ${minHeight};` +
@@ -58,7 +59,7 @@
 <div class="navbar-outer" style={navbarOuterStyle} class:desktop>
 	<div class="navbar-inner" style={navbarInnerStyle}>
 		<div class="logo">
-			<slot name="logo" />
+			<slot name="logo" {desktop} />
 		</div>
 		<nav
 			aria-label="Main Navigation"
@@ -77,7 +78,7 @@
 				>
 			{/if}
 			<div>
-				<slot />
+				<slot {desktop} />
 			</div>
 		</nav>
 		{#if !desktop}
@@ -110,7 +111,7 @@
 		box-sizing: border-box;
 	}
 
-	.desktop-nav > div{
+	.desktop-nav > div {
 		display: flex;
 		align-items: center;
 		gap: 12px;
